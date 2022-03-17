@@ -60,6 +60,7 @@
      <Compile Include="Assets\Scripts\UI\Timer.cs" />
      <Compile Include="Assets\Scripts\Core\Agents\CelluloAgent.cs" />
      <Compile Include="Assets\Scripts\Core\Behaviors\AgentBehavior.cs" />
+     <Compile Include="Assets\Scripts\CollisonsExample.cs" />
      <Compile Include="Assets\Art\Particlecollection_Free samples\Plugins\Effect\Script\EffectShaderPropertyStr.cs" />
      <Compile Include="Assets\Scripts\Core\Behaviors\MoveWithKeyboardBehavior.cs" />
      <Compile Include="Assets\Scripts\Core\Scan\Scanner.cs" />
