@@ -9,13 +9,17 @@ public enum InputKeyboard{
 }
 public class MoveWithKeyboardBehavior : AgentBehaviour
 {
-    public InputKeyboard inputKeyboard; 
+    public InputKeyboard inputKeyboard;
 
     public override Steering GetSteering()
     {
         Steering steering = new Steering();
-        steering.linear = new Vector3(Input.getAxis("Horizontal"), 0, Input.getAxis("Vertical"))* agent.maxAccel; 
-        steering.linear = this.transform.parent.TransformDirection(Vector3.ClampMagnitude(steering.linear, agent.maxAccel));
+
+        float horizontal = Input.GetAxis ("Horizontal") ;
+        float vertical = Input.GetAxis ("Vertical") ;
+
+        steering.linear = new Vector3(horizontal, 0, vertical)* agent.maxAccel ;
+        steering.linear = this.transform.parent.TransformDirection(Vector3.ClampMagnitude(steering.linear , agent.maxAccel)) ;
         return steering;
     }
 
