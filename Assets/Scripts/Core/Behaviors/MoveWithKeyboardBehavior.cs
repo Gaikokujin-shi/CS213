@@ -4,7 +4,7 @@ using UnityEngine;
 
 //Input Keys
 public enum InputKeyboard{
-    arrows =0, 
+    arrows = 0, 
     wasd = 1
 }
 public class MoveWithKeyboardBehavior : AgentBehaviour
@@ -15,8 +15,8 @@ public class MoveWithKeyboardBehavior : AgentBehaviour
     {
         Steering steering = new Steering();
 
-        float horizontal = Input.GetAxis ("Horizontal") ;
-        float vertical = Input.GetAxis ("Vertical") ;
+        float horizontal = Input.GetAxis ($"Horizontal_{inputKeyboard}") ;
+        float vertical = Input.GetAxis ($"Vertical_{inputKeyboard}") ;
 
         steering.linear = new Vector3(horizontal, 0, vertical)* agent.maxAccel ;
         steering.linear = this.transform.parent.TransformDirection(Vector3.ClampMagnitude(steering.linear , agent.maxAccel)) ;
