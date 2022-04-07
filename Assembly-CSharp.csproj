@@ -41,6 +41,7 @@
      <Compile Include="Assets\Art\Particlecollection_Free samples\Plugins\Effect\Script\EffectController.cs" />
      <Compile Include="Assets\Scripts\Core\Behaviors\FollowMouseBehavior.cs" />
      <Compile Include="Assets\Scripts\Core\Config.cs" />
+     <Compile Include="Assets\Scripts\UI\ControlPanel.cs" />
      <Compile Include="Assets\Scripts\Core\Cellulo\CelluloManager.cs" />
      <Compile Include="Assets\Art\Particlecollection_Free samples\Plugins\Effect\Script\RenderEffect.cs" />
      <Compile Include="Assets\Art\Particlecollection_Free samples\Plugins\Effect\Script\TransformExtension.cs" />
@@ -60,7 +61,7 @@
      <Compile Include="Assets\Scripts\Core\Scan\ScannerListElement.cs" />
      <Compile Include="Assets\Scripts\Core\Agents\CelluloAgentRigidBody.cs" />
      <Compile Include="Assets\Scripts\Core\Behaviors\GhostSheepBehavior.cs" />
-     <Compile Include="Assets\Scripts\UI\ControlPanel.cs" />
+     <Compile Include="Assets\Scripts\Menu\ChangeScene.cs" />
      <None Include="Assets\Art\Particlecollection_Free samples\Plugins\Effect\Shader\Toon Blended Premmultiply.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
