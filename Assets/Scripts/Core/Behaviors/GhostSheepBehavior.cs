@@ -10,6 +10,8 @@ public class GhostSheepBehavior : AgentBehaviour
     public bool is_ghost = false;
     public bool is_in_cooldown = false;
     public float range_sheep = 30.0F;
+    public bool stopped = false;
+
     public void Start(){
         audioSheep = GameObject.Find("Audio Sheep");
         audioWolf = GameObject.Find("Audio Wolf");
@@ -21,6 +23,9 @@ public class GhostSheepBehavior : AgentBehaviour
     }
     public override Steering GetSteering()
     {   
+        if (!stopped){
+
+
         Players = GameObject.FindGameObjectsWithTag("Player");
         
         Vector3 position = transform.position;
@@ -62,22 +67,32 @@ public class GhostSheepBehavior : AgentBehaviour
         steering.linear = force * agent.maxAccel ;
         steering.linear = this.transform.parent.TransformDirection(Vector3.ClampMagnitude(steering.linear , agent.maxAccel)) ;
 
+        
+
         return steering;
+
+        }
+
+        return new Steering();
     }
     public void becomeGhost() {
+        if(!stopped){
         audioWolf.GetComponent<AudioSource>().Play();
         is_ghost = true;
         agent.SetVisualEffect(0, new Color(1, 0, 0), 0);
 
         Invoke("becomeSheep", Random.Range(10,20));
+        }
     }
 
     public void becomeSheep() {
+        if(!stopped){
         audioSheep.GetComponent<AudioSource>().Play();
         is_ghost = false;
         agent.SetVisualEffect(0, new Color(0, 1, 0), 0);
 
         Invoke("becomeGhost", Random.Range(10,20));
+        }
     }
 
     public bool isGhost(){
@@ -101,5 +116,9 @@ public class GhostSheepBehavior : AgentBehaviour
             ennemi.GetComponent<ScoreManager>().updateScore(-1);
             coolDown();
         }
+    }
+
+    public void stop(){
+        stopped = true;
     }
 }

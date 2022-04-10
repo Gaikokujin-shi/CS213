@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
- using UnityEngine.UI;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -11,9 +11,7 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        GameObject Score_Text = GameObject.Find("Score_Display");
-        
-        Score = Score_Text.GetComponent<Text>();
+        Score = GameObject.Find("Score_Display").GetComponent<Text>();
         Players = GameObject.FindGameObjectsWithTag("Player");
         Debug.Log("trouv'e l' objet : " + Players[0] + " et " + Players[1]);
         Score.text = "0 - 0";
