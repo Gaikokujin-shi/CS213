@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class TimerManager : MonoBehaviour
 {
 
-    public float remainingTime = 60;
+    public float remTime = 90;
     public bool finished;
     private GameObject[] Players;
     private Text Timer;
@@ -23,9 +23,9 @@ public class TimerManager : MonoBehaviour
     void Update(){
 
         if(!finished){
-            if (remainingTime > 0){
-                remainingTime -= Time.deltaTime;    
-                Timer.text = string.Format("{0:00}:{1:00}", Mathf.FloorToInt(remainingTime / 60), Mathf.FloorToInt(remainingTime % 60));
+            if (remTime > 0){
+                remTime -= Time.deltaTime;    
+                Timer.text = string.Format("{0:00}:{1:00}", Mathf.FloorToInt(remTime / 60), Mathf.FloorToInt(remTime % 60));
             }else{
                 string winner = (Players[0].GetComponent<ScoreManager>().getScore()>Players[1].GetComponent<ScoreManager>().getScore()) ? "Team PURPLE" : "Team BLUE";
                 winner = (Players[0].GetComponent<ScoreManager>().getScore() == Players[1].GetComponent<ScoreManager>().getScore()) ? "DRAW" : winner;
@@ -52,7 +52,7 @@ public class TimerManager : MonoBehaviour
         }
 
         GameObject.Find("GameOverText").GetComponent<Text>().enabled = true;
-    
+        
     }
 
 }
